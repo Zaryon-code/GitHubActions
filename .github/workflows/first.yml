@@ -1,22 +1,66 @@
 name: first
 
-on: [push, pull_request]
+on: 
+    push:
+        branches:
+                -   main
+    pull_request:
+        branches:
+                -   main
+#               
+#jobs: 
+#    job1:  
+#        name: First job
+#        runs-on: ubuntu-latest
+#        steps:
+#        -   name: Step one
+#            uses: actions/checkout@v2
+#        -   name: Step two
+#            run: env | sort
+
+#    job2: 
+#        name: Second job
+#        runs-on: windows-latest
+#        steps:
+#        -   name: Step one
+#            uses: actions/checkout@v2
+#        -   name: Step two
+#            run: "Get-ChildItem Env: | Sort-Object Name"
 
 jobs: 
     job1:  
-        name: First job
+        name: Fecha Ubuntu
         runs-on: ubuntu-latest
         steps:
         -   name: Step one
             uses: actions/checkout@v2
         -   name: Step two
-            run: env | sort
+            uses: date
 
-    job2: 
-        name: Second job
+    job2:  
+        name: Fecha Windows
         runs-on: windows-latest
         steps:
         -   name: Step one
             uses: actions/checkout@v2
         -   name: Step two
-            run: "Get-ChildItem Env: | Sort-Object Name"
+            uses: "Get-Date"
+
+    job3:  
+        name: Fecha MacOS
+        runs-on: macos-latest
+        steps:
+        -   name: Step one
+            uses: actions/checkout@v2
+        -   name: Step two
+            uses: date
+
+    job4:
+        needs: [job1, job2, job3] 
+        name: Dependencia
+        runs-on: ubuntu-lates
+        steps:
+        -   name: Step one
+            uses: actions/checkout@v2
+        -   name: Step two
+            uses: date
