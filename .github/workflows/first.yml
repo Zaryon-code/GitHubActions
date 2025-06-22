@@ -32,8 +32,6 @@ jobs:
         name: Fecha Ubuntu
         runs-on: ubuntu-latest
         steps:
-        -   name: Step one
-            uses: actions/checkout@v2
         -   name: Step two
             uses: date
 
@@ -41,8 +39,6 @@ jobs:
         name: Fecha Windows
         runs-on: windows-latest
         steps:
-        -   name: Step one
-            uses: actions/checkout@v2
         -   name: Step two
             uses: "Get-Date"
 
@@ -50,8 +46,6 @@ jobs:
         name: Fecha MacOS
         runs-on: macos-latest
         steps:
-        -   name: Step one
-            uses: actions/checkout@v2
         -   name: Step two
             uses: date
 
@@ -60,7 +54,5 @@ jobs:
         name: Dependencia
         runs-on: ubuntu-lates
         steps:
-        -   name: Step one
-            uses: actions/checkout@v2
         -   name: Step two
             uses: date
